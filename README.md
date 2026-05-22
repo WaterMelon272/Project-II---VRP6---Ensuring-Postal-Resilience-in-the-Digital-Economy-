@@ -31,7 +31,7 @@ TCPVRP/
 │       ├── utils/        # Các hàm hỗ trợ hiển thị
 │       └── experiments/  # Script chạy các kịch bản kiểm thử hàng loạt
 │
-└── vrp-frontend/         # Frontend React + TypeScript
+└── vrp-frontend/         # Frontend Next.js
 ├── src/
 │   ├── App.tsx        # Component gốc và quản lý state
 │   ├── MapView.tsx    # Bản đồ Leaflet với các layer lộ trình/đơn hàng
