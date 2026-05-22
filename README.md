@@ -46,33 +46,29 @@ TCPVRP/
 
 ### 1. Backend
 
-cd vrp_project
+cd vrp_backend
 
-# Tạo và kích hoạt môi trường ảo (virtual environment)
-python -m venv .venv
-.\\.venv\\Scripts\\Activate.ps1   # Windows PowerShell
-# source .venv/bin/activate    # macOS / Linux
+1. Tạo và kích hoạt môi trường ảo (virtual environment)
+        python -m venv .venv
+        .\\.venv\\Scripts\\Activate.ps1   # Windows PowerShell
+2. Cài đặt các thư viện phụ thuộc
+    pip install -r requirements.txt
 
-# Cài đặt các thư viện phụ thuộc
-pip install -r requirements.txt
-
-# Khởi chạy API server
-python main.py
+3. Khởi chạy API server
+uvicorn main:app --reload --host 127.0.0.1 --port 8000
 
 Server sẽ chạy tại địa chỉ http://127.0.0.1:8000.
 
-Để chạy với chế độ auto-reload trong quá trình code:
-uvicorn main:app --reload --host 127.0.0.1 --port 8000
 
 ### 2. Frontend
 
 
 cd vrp-frontend
 
-# Cài đặt các gói phụ thuộc
+1. Cài đặt các gói phụ thuộc
 npm install
 
-# Khởi chạy development server
+2. Khởi chạy development server
 npm run dev
 
 Ứng dụng sẽ mở tại địa chỉ http://localhost:5173.
