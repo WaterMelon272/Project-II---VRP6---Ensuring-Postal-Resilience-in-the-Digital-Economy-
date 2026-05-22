@@ -1,4 +1,4 @@
-# TCPVRP — Hệ thống Tối ưu hóa Lộ trình Thu gom và Giao hàng có Ràng buộc Thời gian
+# VRP6. Ensuring Postal REsilience in the Digital Economy
 
 Một hệ thống quản lý logistics trên nền tảng web nhằm giải quyết Bài toán Định tuyến Phương tiện (VRP) với các ràng buộc về khung thời gian (time windows), điểm lấy-giao hàng (pickup-delivery), và dữ liệu mạng lưới giao thông thực tế. Hệ thống sử dụng Thuật toán Di truyền (Genetic Algorithm) ở backend được cung cấp qua máy chủ FastAPI và giao diện frontend React/TypeScript để quản lý tương tác đơn hàng và phương tiện.
 
