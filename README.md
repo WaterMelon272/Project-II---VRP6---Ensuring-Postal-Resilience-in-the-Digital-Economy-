@@ -8,11 +8,7 @@ Một hệ thống quản lý logistics trên nền tảng web nhằm giải quy
 
 - **Thuật toán Di truyền (Genetic Algorithm solver)** — Tối ưu hóa lộ trình cho nhiều phương tiện, nhiều chuyến đi dưới các ràng buộc về trọng lượng, thể tích, khung thời gian, hàng hóa không tương thích và khoảng cách.
 - **Định tuyến trên đường thực tế (Real road routing)** — Truy xuất thời gian di chuyển và khoảng cách thực tế từ một phiên bản OSRM; tự động chuyển sang ước tính theo đường chim bay khi không có kết nối.
-- **Giao diện bản đồ tương tác (Interactive map UI)** — Thêm/sửa đơn hàng và xe, trực quan hóa lộ trình trực tiếp trên bản đồ Leaflet.
-- **Kéo thả để chỉnh sửa lộ trình (Drag-and-drop route editing)** — Sắp xếp lại thứ tự các điểm dừng thủ công và tính toán lại chi phí ngay lập tức.
-- **Cập nhật tiến độ theo thời gian thực (Live progress streaming)** — Sử dụng Server-Sent Events (SSE) để đẩy tiến độ tối ưu hóa từ server lên trình duyệt theo thời gian thực.
-- **Mô phỏng hành trình (Route simulation)** — Thanh trượt thời gian (time-slider) giúp tạo hiệu ứng hoạt hình cho quá trình giao hàng trong ngày.
-
+- **Giao diện bản đồ tương tác (Interactive map UI)** — Thêm/sửa đơn hàng và xe trên ứng dụng, trực quan hóa lộ trình trực tiếp trên bản đồ Leaflet.
 ---
 
 ## Cấu trúc Dự án
@@ -20,22 +16,17 @@ Một hệ thống quản lý logistics trên nền tảng web nhằm giải quy
 ## Project Structure
 
 TCPVRP/
-├── vrp_project/          # Backend Python
+├── vrp_backend/          # Backend Python
 │   ├── main.py           # Ứng dụng FastAPI & các API endpoints
-│   ├── schemas.py        # Các model Pydantic cho request/response
 │   ├── requirements.txt  # Các thư viện Python cần thiết
-│   └── vrp/
-│       ├── core/         # Định nghĩa bài toán, cấu trúc giải pháp và hàm đánh giá chi phí
-│       ├── solvers/      # Thuật toán GA_TCPVRP và các thuật toán thay thế
-│       ├── data/         # Load dữ liệu đầu vào
-│       ├── utils/        # Các hàm hỗ trợ hiển thị
-│       └── experiments/  # Script chạy các kịch bản kiểm thử hàng loạt
-│
+│   ├── routing_ga        # Cài đặt của thuật toán GA
+│   ├── routing_astar     # Cài đặt của thuật toán A* 
 └── vrp-frontend/         # Frontend Next.js
-├── src/
-│   ├── App.tsx        # Component gốc và quản lý state
-│   ├── MapView.tsx    # Bản đồ Leaflet với các layer lộ trình/đơn hàng
-│   └── components/   # Các panel quản lý: Xe, Đơn hàng, Kết quả, Bảng điều khiển mô phỏng
+├── app/
+│   ├── admin/dashboard   # Trang dashboard
+│   ├── admin/dispatch   # Trang dispatch
+│   ├── user              # Trang cho user
+│   ├── driver              # Trang cho tài xế
 ├── package.json
 └── vite.config.ts
 
@@ -55,7 +46,6 @@ TCPVRP/
 
 ### 1. Backend
 
-```powershell
 cd vrp_project
 
 # Tạo và kích hoạt môi trường ảo (virtual environment)
